@@ -1,0 +1,17 @@
+@MyAPI_HostAddress = http://localhost:5105
+
+GET {{MyAPI_HostAddress}}/api/bus-lines
+Accept: application/json
+
+###
+
+POST {{MyAPI_HostAddress}}/api/bus-lines
+Content-Type: application/json
+
+{
+  "driver": "Alex Morgan",
+  "plate": "AB 1234 CD",
+  "hours": "06:00 - 22:30"
+}
+
+###

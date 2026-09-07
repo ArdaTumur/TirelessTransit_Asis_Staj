@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support Chat</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="chat-shell">
+    <header class="chat-header">
+      <div>
+        <p class="eyebrow">Tireless Transit</p>
+        <h1>Support chat</h1>
+        <p id="auth-status" aria-live="polite"></p>
+      </div>
+      <a class="button secondary" href="../">Back to bus lines</a>
+    </header>
+
+    <section id="user-chat" class="chat-layout" hidden>
+      <div class="conversation-panel full-width">
+        <h2>Chat with admins</h2>
+        <div id="user-messages" class="messages" aria-live="polite"></div>
+        <form id="user-message-form" class="message-form">
+          <input id="user-message" type="text" maxlength="4000" placeholder="Write a message…" autocomplete="off" />
+          <button class="button" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="admin-chat" class="chat-layout" hidden>
+      <aside class="conversation-list-panel">
+        <div class="panel-heading"><h2>Users</h2><button id="refresh-conversations" class="button secondary" type="button">Refresh</button></div>
+        <div id="conversation-list" class="conversation-list"></div>
+      </aside>
+      <section class="conversation-panel">
+        <div class="panel-heading"><h2 id="selected-user">Select a user</h2></div>
+        <div id="admin-messages" class="messages" aria-live="polite"></div>
+        <form id="admin-message-form" class="message-form">
+          <input id="admin-message" type="text" maxlength="4000" placeholder="Reply to the selected user…" autocomplete="off" disabled />
+          <button class="button" type="submit" disabled>Send</button>
+        </form>
+      </section>
+    </section>
+
+    <p id="chat-error" class="error" role="alert"></p>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@latest/dist/browser/signalr.min.js"></script>
+  <script src="./chat.js"></script>
+</body>
+</html>

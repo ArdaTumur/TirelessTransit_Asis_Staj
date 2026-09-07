@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bus Lines</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <div><p class="eyebrow">Fleet manager</p><h1>Bus lines</h1></div>
+        <div class="header-actions"><a class="button secondary" href="hub/">Open chat</a><a id="login-link" class="button secondary" href="login/">Log in</a><button id="logout-button" class="button secondary" type="button" hidden>Log out</button></div>
+      </header>
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Add a bus line</h2>
+        <p class="helper-text"><a href="./login/">Log in</a> to add, update, or remove a bus line.</p>
+        <form id="bus-line-form">
+          <label for="driver">Driver</label>
+          <input id="driver" name="driver" maxlength="100" required placeholder="Ali Veli" />
+          <label for="plate">License plate number</label>
+          <input id="plate" name="plate" maxlength="20" required placeholder="34 ABC 123" />
+          <label for="hours">Operating hours</label>
+          <input id="hours" name="hours" maxlength="100" required placeholder="06:00 – 22:30" /><br /><br />
+          <div class="form-actions">
+            <button id="submit-button" class="button" type="submit">Add bus line</button>
+            <button id="cancel-edit-button" class="button secondary" type="button" hidden>Cancel edit</button>
+          </div>
+          <p id="form-message" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+      <section class="fleet" aria-labelledby="fleet-title">
+        <div class="fleet-heading">
+          <h2 id="fleet-title">Current fleet</h2>
+          <button id="refresh-button" class="button secondary" type="button">Refresh</button>
+        </div>
+        <p id="loading-message" class="message">Loading bus lines…</p>
+        <div id="bus-lines" class="bus-lines" aria-live="polite"></div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

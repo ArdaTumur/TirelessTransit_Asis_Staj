@@ -1,0 +1,12 @@
+FIXES INCLUDED
+
+1. Chat authentication now uses the JWT name/role claims explicitly and the SignalR hub/API resolve the logged-in user from those claims.
+2. Chat startup verifies the bearer token against the API before opening SignalR, and reports connection failures separately from authentication failures.
+3. Program startup calls Database.Migrate() so pending EF Core migrations (including OriginCity, DestinationCity, RouteStatus and ChatMessages) are applied automatically.
+4. The browser bus-line page accepts both camelCase and PascalCase JSON properties for route fields.
+5. The checked-in publish/wwwroot directory is synchronized with the source wwwroot.
+
+IMPORTANT
+The existing publish/MyAPI.dll was built before the latest source changes and cannot be rebuilt in this environment because the .NET SDK is unavailable here. Do not run that old binary. Rebuild/publish the solution with .NET 10 before deploying, or run the project from source in Visual Studio / dotnet.
+
+After rebuilding, the app will apply the pending EF migration automatically at startup. If you already have a partially migrated database, let EF apply the migration instead of manually adding the same columns.

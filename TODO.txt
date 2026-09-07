@@ -1,0 +1,5 @@
+Completed:
+1. Add fields of OriginCity, DestinationCity, RouteStatus(Scheduled, En Route, Delayed, Cancelled)
+2. Make chat as a one user to admins rather than all in one chat hub
+3. Keep chat history
+4. Make add busline a new page and button that leads to it only accessible to admins

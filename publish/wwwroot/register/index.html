@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="card" aria-labelledby="register-heading">
+        <h1 id="register-heading">Create an account</h1>
+        <p>Register to manage bus lines.</p>
+        <form id="register-form">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" maxlength="50" required autocomplete="username" />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" maxlength="20" required autocomplete="new-password" />
+          <input type="hidden" name="role" value="User" />
+          <button type="submit">Register</button>
+          <p id="form-message" aria-live="polite"> </p>
+        </form>
+        <p>Already registered? <a href="../login/">Log in</a></p>
+      </section>
+    </main>
+    <script src="auth.js"></script>
+  </body>
+</html>
