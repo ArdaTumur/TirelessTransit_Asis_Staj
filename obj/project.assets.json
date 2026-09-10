@@ -3250,11 +3250,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "projectUniqueName": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "projectName": "MyAPI",
-      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "packagesPath": "C:\\Users\\ardat\\.nuget\\packages\\",
-      "outputPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\obj\\",
+      "outputPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

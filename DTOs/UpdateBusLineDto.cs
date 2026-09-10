@@ -5,7 +5,7 @@ namespace MyAPI.DTOs;
 public class UpdateBusLineDto
 {
     [Required]
-    [RegularExpression(@"^[A-Za-zşçğüıöÖÇŞİĞÜ]+(?:[-'\s][A-Za-zşçğüıöÖÇŞİĞÜ]+)*$",
+    [RegularExpression(@"^[a-zA-ZçÇğĞıİöÖşŞüÜ]+(?:[-'\s][a-zA-ZçÇğĞıİöÖşŞüÜ]+)*$",
         ErrorMessage = "Invalid driver name format.")]
     public string Driver { get; set; } = "";
 

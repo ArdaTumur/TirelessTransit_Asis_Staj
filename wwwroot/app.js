@@ -4,6 +4,8 @@ const loadingMessage = document.getElementById("loading-message");
 const loginLink = document.getElementById("login-link");
 const logoutButton = document.getElementById("logout-button");
 const adminBusLinesLink = document.getElementById("admin-bus-lines-link");
+const fleetCount = document.getElementById("fleet-count");
+const availableCount = document.getElementById("available-count");
 
 const getToken = () => localStorage.getItem("busLinesToken");
 
@@ -46,16 +48,24 @@ function createLineElement(busLine) {
   hours.textContent = `Hours: ${hoursValue}`;
   const route = document.createElement("p");
   route.textContent = `Route: ${originValue} → ${destinationValue}`;
-  const status = document.createElement("p");
-  status.textContent = `Status: ${routeStatusValue}`;
+  const status = document.createElement("span");
+  const normalizedStatus = String(routeStatusValue).toLowerCase().replace(/\s+/g, "-");
+  status.className = `status-badge status-${normalizedStatus}`;
+  status.textContent = routeStatusValue;
 
-  details.append(plate, driver, hours, route, status);
+  route.className = "line-route";
+  const meta = document.createElement("div");
+  meta.className = "line-meta";
+  meta.append(driver, hours);
+  details.append(status, plate, route, meta);
   item.append(details);
   return item;
 }
 
 function displayBusLines(busLines) {
   busLinesContainer.replaceChildren();
+  fleetCount.textContent = busLines.length;
+  availableCount.textContent = busLines.filter(line => String(line.routeStatus ?? line.RouteStatus ?? "Scheduled").toLowerCase() === "scheduled").length;
   if (!busLines.length) {
     loadingMessage.textContent = "No bus lines have been added yet.";
     return;

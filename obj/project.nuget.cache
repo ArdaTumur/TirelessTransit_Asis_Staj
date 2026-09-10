@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bqlLlDCCHDI=",
+  "dgSpecHash": "lmp4hyfO6N0=",
   "success": true,
-  "projectFilePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+  "projectFilePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ardat\\.nuget\\packages\\auth0.aspnetcore.authentication.api\\1.0.1\\auth0.aspnetcore.authentication.api.1.0.1.nupkg.sha512",
     "C:\\Users\\ardat\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
@@ -61,9 +61,9 @@
       "code": "NU1510",
       "level": "Warning",
       "message": "PackageReference Microsoft.AspNetCore.SignalR will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.",
-      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "filePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "libraryId": "Microsoft.AspNetCore.SignalR",
       "targetGraphs": [
         "net10.0"
@@ -73,9 +73,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
-      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "projectPath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\MyAPI.csproj",
+      "filePath": "C:\\pythondemos\\nonpython\\asis-staj\\MyAPI_Kopya_fixed\\TirelessTransit_Asis_Staj\\MyAPI.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

@@ -59,52 +59,71 @@ function resetForm() {
 }
 
 function createLineElement(busLine) {
-  const item = document.createElement("article"); 
+  const item = document.createElement("article");
   item.className = "bus-line";
+
   const details = document.createElement("div");
+  details.className = "line-details";
 
-  const plate = document.createElement("h3");
-  plate.textContent = busLine.plate;
+  const title = document.createElement("h3");
+  title.textContent = busLine.plate;
 
-  const driver = document.createElement("p");
-  driver.textContent = `Driver: ${busLine.driver}`;
-
-  const hours = document.createElement("p");
-  hours.textContent = `Hours: ${busLine.hours}`;
+  const normalizedStatus = String(busLine.routeStatus || "Scheduled").toLowerCase().replace(/\s+/g, "-");
+  const status = document.createElement("span");
+  status.className = `status-badge status-${normalizedStatus}`;
+  status.textContent = busLine.routeStatus || "Scheduled";
 
   const route = document.createElement("p");
-  route.textContent = `Route: ${busLine.originCity} → ${busLine.destinationCity}`;
+  route.className = "line-route";
+  route.textContent = `${busLine.originCity} → ${busLine.destinationCity}`;
 
-  const status = document.createElement("p");
-  status.textContent = `Status: ${busLine.routeStatus}`;
+  const meta = document.createElement("div");
+  meta.className = "line-meta";
 
-  details.append(plate, driver, hours, route, status); 
+  const driver = document.createElement("p");
+  driver.textContent = `Driver · ${busLine.driver}`;
+
+  const hours = document.createElement("p");
+  hours.textContent = `Hours · ${busLine.hours}`;
+
+  meta.append(driver, hours);
+  details.append(title, status, route, meta);
   item.append(details);
-  
+
   if (getRoleFromToken(getToken() || "") === "Admin") {
-    const actions = document.createElement("div"); 
+    const actions = document.createElement("div");
     actions.className = "line-actions";
-    
-    const editButton = document.createElement("button"); 
-    editButton.className = "button secondary"; 
-    editButton.textContent = "Edit"; 
+
+    const editButton = document.createElement("button");
+    editButton.className = "button secondary";
+    editButton.type = "button";
+    editButton.textContent = "Edit";
     editButton.addEventListener("click", () => startEdit(busLine));
-    
-    const deleteButton = document.createElement("button"); 
-    deleteButton.className = "button danger"; 
-    deleteButton.textContent = "Delete"; 
+
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "button danger";
+    deleteButton.type = "button";
+    deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", () => deleteBusLine(busLine.id));
-    
-    actions.append(editButton, deleteButton); 
+
+    actions.append(editButton, deleteButton);
     item.append(actions);
   }
+
   return item;
 }
 
 function displayBusLines(busLines) {
   busLinesContainer.replaceChildren();
-  if (!busLines.length) { loadingMessage.textContent = "No bus lines have been added yet."; return; }
-  loadingMessage.textContent = ""; 
+  if (!busLines.length) {
+    loadingMessage.textContent = "";
+    const emptyState = document.createElement("div");
+    emptyState.className = "empty-state";
+    emptyState.textContent = "No bus lines have been added yet.";
+    busLinesContainer.append(emptyState);
+    return;
+  }
+  loadingMessage.textContent = "";
   busLines.forEach(line => busLinesContainer.append(createLineElement(line)));
 }
 

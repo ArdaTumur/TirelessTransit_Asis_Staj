@@ -3,38 +3,70 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Manage bus lines</title>
-  <link rel="stylesheet" href="../../styles.css" />
+  <meta name="theme-color" content="#2563eb" />
+  <title>Manage bus lines · Tireless Transit</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page-shell">
     <header class="page-header">
-      <div><p class="eyebrow">Administration</p><h1>Manage bus lines</h1></div>
-      <div class="header-actions"><a class="button secondary" href="../../">Back</a><button id="logout-button" class="button secondary" type="button">Log out</button></div>
+      <div>
+        <p class="eyebrow">Administration</p>
+        <h1>Manage bus lines</h1>
+      </div>
+      <div class="header-actions">
+        <a class="button secondary" href="../../">Back</a>
+        <button id="logout-button" class="button secondary" type="button">Log out</button>
+      </div>
     </header>
+
     <section id="access-denied" class="card" hidden>
       <h2>Admin access required</h2>
       <p>You must be signed in as an administrator to manage bus lines.</p>
-      <a class="button" href="../../login/">Log in</a>
+      <div class="form-actions"><a class="button" href="../../login/">Log in</a></div>
     </section>
+
     <section id="admin-content" hidden>
       <section class="card">
+        <p class="eyebrow">Fleet editor</p>
         <h2>Add a bus line</h2>
+        <p class="helper-text">Keep route details consistent so they are easy to scan on the public fleet view.</p>
         <form id="bus-line-form">
-          <label for="driver">Driver</label><input id="driver" name="driver" maxlength="100" required />
-          <label for="plate">License plate number</label><input id="plate" name="plate" maxlength="20" required />
-          <label for="originCity">Origin city</label><input id="originCity" name="originCity" maxlength="100" required />
-          <label for="destinationCity">Destination city</label><input id="destinationCity" name="destinationCity" maxlength="100" required />
+          <label for="driver">Driver</label>
+          <label for="plate">License plate number</label>
+          <input id="driver" name="driver" maxlength="100" required autocomplete="name" />
+          <input id="plate" name="plate" maxlength="20" required />
+          <label for="originCity">Origin city</label>
+          <label for="destinationCity">Destination city</label>
+          <input id="originCity" name="originCity" maxlength="100" required />
+          <input id="destinationCity" name="destinationCity" maxlength="100" required />
           <label for="routeStatus">Route status</label>
-          <select id="routeStatus" name="routeStatus" required><option>Scheduled</option><option>En Route</option><option>Delayed</option><option>Cancelled</option></select>
-          <label for="hours">Operating hours</label><input id="hours" name="hours" maxlength="100" required placeholder="06:00 - 22:30" />
-          <div class="form-actions"><button id="submit-button" class="button" type="submit">Add bus line</button><button id="cancel-edit-button" class="button secondary" type="button" hidden>Cancel edit</button></div>
+          <label for="hours">Operating hours</label>
+          <select id="routeStatus" name="routeStatus" required>
+            <option>Scheduled</option>
+            <option>En Route</option>
+            <option>Delayed</option>
+            <option>Cancelled</option>
+          </select>
+          <input id="hours" name="hours" maxlength="100" required placeholder="06:00 - 22:30" />
+          <div class="form-actions">
+            <button id="submit-button" class="button" type="submit">Add bus line</button>
+            <button id="cancel-edit-button" class="button secondary" type="button" hidden>Cancel edit</button>
+          </div>
           <p id="form-message" class="message" aria-live="polite"></p>
         </form>
       </section>
+
       <section class="fleet">
-        <div class="fleet-heading"><h2>Current fleet</h2><button id="refresh-button" class="button secondary" type="button">Refresh</button></div>
-        <p id="loading-message" class="message">Loading bus lines…</p><div id="bus-lines" class="bus-lines"></div>
+        <div class="fleet-heading">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h2>Current fleet</h2>
+          </div>
+          <button id="refresh-button" class="button secondary" type="button">Refresh</button>
+        </div>
+        <p id="loading-message" class="message">Loading bus lines…</p>
+        <div id="bus-lines" class="bus-lines"></div>
       </section>
     </section>
   </main>
